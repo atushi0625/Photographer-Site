@@ -1,0 +1,31 @@
+@use "sass/layout/header";
+@use "sass/layout/main";
+@use "sass/layout/variables"as v;
+
+
+:root {
+     --text: #333;
+     --bg: #fff;
+     --video-opacity: .7;
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+     :root {
+          --text: #ddd;
+          --bg: #000;
+          --video-opacity: .7;
+     }
+}
+
+body {
+     color: var(--text);
+     background: var(--bg);
+     font-family: 'Bree Serif', sans-serif;
+     transition: .5s;
+}
+
+p {
+     line-height: 1.7;
+}

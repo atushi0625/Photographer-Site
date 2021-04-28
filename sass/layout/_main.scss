@@ -1,0 +1,79 @@
+/*main*/
+
+$ds:600px;
+
+
+@mixin ds-size {
+     @media (min-width:$ds) {
+          //600px以上になったらサイズ変更
+          @content
+     }
+}
+
+
+.grid {
+     display: grid;
+     width: 94vw;
+     margin: 0 auto 3vw;
+     gap: 2vw;
+     grid-template-columns: repeat(2, 46vw); //repeat(繰り返す数、値)
+     grid-template-rows: repeat(8, 46vw);
+
+
+     .grid-item {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; //画像のトリミング
+          object-position: center;
+          filter: grayscale(100%); //％が高いほど白黒になる
+     }
+
+     .grid-big-top {
+          grid-column: 1/3;
+          grid-row: 2/3;
+     }
+
+     .grid-big-bottom {
+          grid-column: 1/3;
+          grid-row: 6/7;
+     }
+}
+
+//拡大画像がサムネイル画像の下にしているので1番上にくるように調整
+.lum-lightbox.lum-open {
+     z-index: 4;
+}
+
+//拡大したときの画像の最大サイズ
+.lum-lightbox-inner img {
+     max-width: 120vw;
+     max-height: 80vh;
+}
+
+/*レスポンシブ*/
+@include ds-size {
+     .grid {
+          width: 80vw;
+          gap: 1vw;
+          grid-template-columns: repeat(3, 26vw);
+          grid-template-rows: repeat(5, 26vw);
+
+          .grid-item {
+               transition: .3s;
+
+               &:hover {
+                    filter: grayscale(0);
+                    transform: scale(1.1); //縮小の倍率
+                    z-index: 3;
+                    position: relative;
+                    box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+               }
+          }
+
+          .grid-big-bottom {
+               grid-column: 2/4;
+               grid-row: 4/5;
+          }
+     }
+
+}
