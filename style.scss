@@ -2,16 +2,18 @@
 @use "sass/layout/main";
 @use "sass/layout/variables"as v;
 
-
+/*カラーの変数で、これをもともと設定している*/
 :root {
      --text: #333;
      --bg: #fff;
      --video-opacity: .7;
 }
 
-
+/*CSSダークモードのメディアクエリーはここに追加しました*/
 @media (prefers-color-scheme: dark) {
 
+
+     /*ダークモードにした時のカラー*/
      :root {
           --text: #ddd;
           --bg: #000;
@@ -19,6 +21,7 @@
      }
 }
 
+/*上記のカラーをbodyタグで設定しています*/
 body {
      color: var(--text);
      background: var(--bg);
