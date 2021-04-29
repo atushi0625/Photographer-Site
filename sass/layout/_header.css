@@ -7,7 +7,7 @@ header {
 header video {
   object-fit: cover;
   object-position: center top;
-  opacity: .5s;
+  opacity: var(--video-opacity);
   width: 100vw;
   height: 90vh;
 }
@@ -44,7 +44,7 @@ header .header-pattern {
   position: absolute;
   z-index: 1;
   background-size: auto auto;
-  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 4px);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 4px, var(--bg) 2px, var(--bg) 4px);
   width: 100vw;
   height: 90vh;
 }

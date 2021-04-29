@@ -6,7 +6,7 @@
 :root {
      --text: #333;
      --bg: #fff;
-     --video-opacity: .7;
+     --video-opacity: .6;
 }
 
 /*CSSダークモードのメディアクエリーはここに追加しました*/
@@ -31,4 +31,14 @@ body {
 
 p {
      line-height: 1.7;
+}
+
+/*footer*/
+footer {
+     text-align: center;
+     margin-bottom: 3rem;
+
+     .footer-link {
+          margin-bottom: .5rem;
+     }
 }

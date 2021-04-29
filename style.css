@@ -1,32 +1,28 @@
-@use "sass/layout/header";
-@use "sass/layout/main";
-@use "sass/layout/variables"as v;
-:root {
-  --text: #333;
-  --bg: #fff;
-  --video-opacity: .7;
+@charset "UTF-8";
+/*heade*/
+header {
+  position: relative;
+  margin-bottom: 0.5rem;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #ddd;
-    --bg: #000;
-    --video-opacity: .7;
-  }
+header video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center top;
+     object-position: center top;
+  opacity: var(--video-opacity);
+  width: 100vw;
+  height: 90vh;
 }
-
-body {
-  color: var(--text);
-  background: var(--bg);
-  font-family: 'Bree Serif', sans-serif;
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-p {
-  line-height: 1.7;
-}
-/*# sourceMappingURL=style.css.map */ -ms-flex-direction: column;
+header .header-text {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -54,7 +50,7 @@ header .header-pattern {
   position: absolute;
   z-index: 1;
   background-size: auto auto;
-  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 4px);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--bg) 2px, var(--bg) 4px);
   width: 100vw;
   height: 90vh;
 }
@@ -126,19 +122,23 @@ header .header-link {
     grid-row: 4/5;
   }
 }
+/*カラーの変数で、これをもともと設定している*/
 :root {
   --text: #333;
   --bg: #fff;
-  --video-opacity: .7;
+  --video-opacity: .6;
 }
 
+/*CSSダークモードのメディアクエリーはここに追加しました*/
 @media (prefers-color-scheme: dark) {
+  /*ダークモードにした時のカラー*/
   :root {
     --text: #ddd;
     --bg: #000;
     --video-opacity: .7;
   }
 }
+/*上記のカラーをbodyタグで設定しています*/
 body {
   color: var(--text);
   background: var(--bg);
@@ -149,5 +149,14 @@ body {
 
 p {
   line-height: 1.7;
+}
+
+/*footer*/
+footer {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+footer .footer-link {
+  margin-bottom: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */
